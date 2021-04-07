@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <title>BoolFlix</title>
+</head>
+<body>
+
+    <div id="root">
+        <input type="text" v-model="srcMovie" @keypress.enter="search">
+
+        <ul>
+            <li v-for="movie in listMovie">
+                <h3>{{movie.title}}</h3>
+                <h3>{{movie.original_title}}</h3>
+                <h3>{{movie.original_language}}</h3>
+                <h3>{{movie.vote_average}}</h3>
+
+            </li>
+        </ul>
+
+        
+    </div>
+    
+
+
+    <script src="vue/script.js"></script>
+</body>
+</html>
