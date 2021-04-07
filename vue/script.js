@@ -10,7 +10,7 @@ var app = new Vue({
     methods: {
         search() {
             const self= this
-            axios.get('https://api.themoviedb.org/3/search/movie?api_key=e76246e0c4731c413ba03a3bc5965d13&query=' + this.srcMovie)
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=e76246e0c4731c413ba03a3bc5965d13&language=it-IT&include_adult=true&query=' + this.srcMovie)
             .then((result) => {
                 
                 this.listMovie = result.data.results;
