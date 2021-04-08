@@ -6,29 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+    
     <title>BoolFlix</title>
 </head>
 <body>
-
     <div id="root">
-        <input type="text" v-model="srcMovie" @keypress.enter="search">
+        <!-- nav bar con logo -->
+        <div class="header">
+            <input type="text" v-model="search" @keyup.13="src">
+        </div>
 
-        <ul>
-            <li v-for="movie in listMovie">
-                <h3>{{movie.title}}</h3>
-                <h3>{{movie.original_title}}</h3>
-                <h3>{{movie.original_language}}</h3>
-                <h3>{{movie.vote_average}}</h3>
+        <!-- main con card film -->
 
-            </li>
-        </ul>
+        <div class="container">
+            <div class="card-container" v-for="film in list">
+                <h3>Titolo : {{film.title || film.name}}</h3>
+                <h3>Titolo originale : {{film.original_title}}</h3>
+                <img :src="getFlagSrc(film.original_language)" alt="">
+                <h5>{{film.vote_average}}</h5>
+                <h6>{{film.release_date}}</h6>
+                
+                
 
-        
+
+            </div>
+
+
+        </div>
+
     </div>
-    
 
+   
+    
 
     <script src="vue/script.js"></script>
 </body>
